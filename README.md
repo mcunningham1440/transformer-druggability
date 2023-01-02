@@ -8,7 +8,7 @@ Note that this project is separate from my protein druggability work at AbbVie a
 
 The ability to predict the druggability of human proteins remains a major unsolved problem in pharmaceutical science. Druggability refers to the ability of a protein's function to be altered by a pharmaceutical drug for therapeutic effect. Many prior computational efforts in this field have approached the problem using a variety of datasets, making direct comparison between their results difficult.
 
-In 2016, Jamali et al. published "DrugMiner: comparative analysis of machine learning algorithms for prediction of potential druggable proteins", introducing a dataset of 1223 drugged and 1319 undrugged proteins. This dataset has quickly become a standard benchmark for the performance of sequence-based protein druggability prediction algorithms, with a total of 7 publications as of December 2022 (see table below).
+In 2016, Jamali et al. published "[DrugMiner: comparative analysis of machine learning algorithms for prediction of potential druggable proteins](https://www.sciencedirect.com/science/article/abs/pii/S1359644616000271?via%3Dihub)", introducing a dataset of 1223 drugged and 1319 undrugged proteins. This dataset has quickly become a standard benchmark for the performance of sequence-based protein druggability prediction algorithms, with a total of 7 publications as of December 2022 (see table below).
 
 | Author      | Year | Name                                                                                                                    | ML method                                 | Accuracy | AUC    |
 |-------------|------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|----------|--------|
@@ -24,5 +24,9 @@ Many of these efforts have achieved impressive results using statistical feature
 
 # Results
 
-ESM-2 (Evolutionary Scale Modeling) is a transformer designed specifically to process protein sequences. It was published by the Fundamental AI Research team at Meta AI in the paper "Evolutionary-scale prediction of atomic level protein structure with a language model" in 2022. The smallest version, at 7.4 million parameters, is available through the Hugging Face Transformers library.
+ESM-2 (Evolutionary Scale Modeling) is a transformer designed specifically to process protein sequences. It was published by the Fundamental AI Research team at Meta AI in the paper "[Evolutionary-scale prediction of atomic level protein structure with a language model](https://www.biorxiv.org/content/10.1101/2022.07.20.500902v2)" in 2022. The smallest version, at 7.4 million parameters, is available through the Hugging Face Transformers library.
+
+The Transformers library gives the user access to the tokenizer used for ESM and a version of the model with a classification head on top (see the [documentation](https://huggingface.co/docs/transformers/model_doc/esm#transformers.TFEsmForSequenceClassification)), enabling ESM to be used for protein classification.
+
+Using the Jamali dataset of 1223 drugged and 1319 "undruggable" protein sequences, I fine-tuned an ESM-2 classification model to predict the druggability of each sequence. Five-fold cross-validation was used to generate a reliable estimate of the model's accuracy and area under the receiver operating characteristic (AUC) under each set of training conditions. Training took place on an A100 GPU via Google Colab.
 
