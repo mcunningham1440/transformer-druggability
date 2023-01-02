@@ -32,4 +32,10 @@ Using the Jamali dataset of 1223 drugged and 1319 "undruggable" protein sequence
 
 ![](https://github.com/mcunningham1440/transformer-druggability/blob/main/assets/learn_rate_chart.png)
 
-Using a batch size of 8, early stopping if validation loss failed to improve for 2 epochs, and a maximum of 15 epochs to save computational resources, I tested different learning rates (see table above). Lower learning rates did not improve validation accuracy or AUC, and lead to the model expending all 15 training epochs without converging at the lowest rate. Consequently, I selected 1e-4 as the learning rate for following experiments.
+Using a batch size of 8, early stopping if validation loss failed to improve for 2 epochs, and a maximum of 15 epochs to save computational resources, I tested different learning rates (see above). Lower learning rates did not improve validation accuracy or AUC, and lead to the model expending all 15 training epochs without converging at the lowest rate. Consequently, I selected 1e-4 as the learning rate for following experiments.
+
+![](https://github.com/mcunningham1440/transformer-druggability/blob/main/assets/batch_size_chart.png)
+
+Next, I tested batch sizes of 4, 8, 16, or 32. Of these, 16 delivered the best performance across both accuracy and AUC, although the differences were not substantial (see above). The raw results from both of these experiments can be found in the "results" folder.
+
+Finally, using a learning rate of 1e-4 and a batch size of 16, I trained an ESM-2 model on all 1223 drugged and 1319 "undruggable" proteins in the Jamali dataset, using an independent test set created by Yu et al.
