@@ -1,4 +1,4 @@
-# Protein Druggability Prediction Using Pretrained Hugging Face Transformers
+# Protein Druggability Prediction Using Pretrained Transformers
 
 This project is an effort to use the pretrained ESM-2 transformer model from MetaAI's Fundamental AI Research team to predict the druggability--or succeptibility to pharmacological modulation--of a published dataset of drugged and undruggable proteins. Prior publications using this dataset rely on numeric features calculated from the protein sequence to achieve high performance, but I find that comparable results can be achieved using only the raw sequence fed into a fine-tuned transformer model.
 
