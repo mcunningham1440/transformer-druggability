@@ -30,3 +30,6 @@ The Transformers library gives the user access to the tokenizer used for ESM and
 
 Using the Jamali dataset of 1223 drugged and 1319 "undruggable" protein sequences, I fine-tuned an ESM-2 classification model to predict the druggability of each sequence. Five-fold cross-validation was used to generate a reliable estimate of the model's accuracy and area under the receiver operating characteristic (AUC) under each set of training conditions. Training took place on an A100 GPU via Google Colab.
 
+![](https://github.com/mcunningham1440/transformer-druggability/blob/main/assets/learn_rate_chart.png)
+
+Using a batch size of 8, early stopping if validation loss failed to improve for 2 epochs, and a maximum of 15 epochs to save computational resources, I tested different learning rates (see table above). Lower learning rates did not improve validation accuracy or AUC, and lead to the model expending all 15 training epochs without converging at the lowest rate. Consequently, I selected 1e-4 as the learning rate for following experiments.
