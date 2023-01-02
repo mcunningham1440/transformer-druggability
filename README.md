@@ -10,7 +10,7 @@ The ability to predict the druggability of human proteins remains a major unsolv
 
 In 2016, Jamali et al. published "[DrugMiner: comparative analysis of machine learning algorithms for prediction of potential druggable proteins](https://www.sciencedirect.com/science/article/abs/pii/S1359644616000271?via%3Dihub)", introducing a dataset of 1223 drugged and 1319 undrugged proteins. This dataset has quickly become a standard benchmark for the performance of sequence-based protein druggability prediction algorithms, with a total of 7 publications as of December 2022 (see table below).
 
-| Author      | Year | Name                                                                                                                    | ML method                                 | Accuracy | AUC    |
+| Author      | Year | Publication                                                                                                                    | ML method                                 | Accuracy | AUC    |
 |-------------|------|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|----------|--------|
 | Jamali      | 2016 | DrugMiner: comparative analysis of machine learning algorithms for prediction of potential druggable proteins           |               Neural network              |   0.900  |  0.959 |
 | Sun         | 2018 | Analysis of protein features and machine learning algorithms for prediction of druggable proteins                       |   3-gram word2vec w/logistic regression   |   0.911  |   NA   |
